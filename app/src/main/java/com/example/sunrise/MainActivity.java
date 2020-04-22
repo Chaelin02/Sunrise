@@ -1,10 +1,13 @@
 package com.example.sunrise;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,16 @@ public class MainActivity extends AppCompatActivity implements ViewflipperActivi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("ACTIVITY","onCreate 호출됨");
+        Toast.makeText(getApplicationContext(),"onCreate 호출됨",Toast.LENGTH_SHORT).show();
+        Button button = (Button) findViewById(R.id.sunrise_logo);
+        //로고 클릭이벤트
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SubActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //UI
         flipper = (ViewFlipper)findViewById(R.id.flipper);
@@ -51,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements ViewflipperActivi
         //리스너설정 - 좌우 터치시 화면넘어가기
         flipper.setOnTouchListener(new ViewflipperActivity(this, flipper));
     }
+
 
     //인덱스 업데이트
     @Override

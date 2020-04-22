@@ -204,7 +204,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/orangehalfbt"
-                tools:ignore="UnknownId">
+                tools:ignore="UnknownId"
+                android:onClick="www.naver.com">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/appCompatTextView13"
